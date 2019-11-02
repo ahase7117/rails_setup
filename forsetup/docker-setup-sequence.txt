@@ -1,0 +1,14 @@
+docker-compose run web rails new . --force --no-deps --database=postgresql --skip-bundle
+
+config/database.ymlを上記の通りに変更します。
+Railsはデフォルトでhost:localhostとなりますので
+hostを先ほど作成したdbに変更します。
+
+Gemfileが更新されたのでビルドを実行しましょう
+
+$ docker-compose build
+
+
+$ docker-compose up -d
+
+$ docker-compose run web rake db:create
